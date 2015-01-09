@@ -31,7 +31,7 @@
             <param name="android-package" value="avishayhajbi.gpsplugin.GpsPlugin" />
          </feature>
       </config-file>
-	  <config-file target="AndroidManifest.xml" parent="/manifest">
+	  <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 			<uses-permission android:name="android.permission.ACCESS_GPS" />
 			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
