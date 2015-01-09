@@ -9,6 +9,7 @@ import android.view.Gravity;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaActivity;
 import org.json.JSONArray;
 import org.json.JSONException;
 //json parse
@@ -27,11 +28,13 @@ import android.app.Activity;
 import android.provider.Settings;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.util.Log;
 
 
-public class HelloPlugin extends CordovaPlugin{
+public class GpsPlugin extends CordovaPlugin{
+
+    static boolean dialogExist=false;
+    static LocationManager locationManager=null;
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
