@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.plugin"
+    version="1.0.2">
+    <name>gps</name>
+    <description>Sample PhoneGap gps Plugin</description>
+    <license>avishayhajbi</license>
+    <keywords>phonegap,gps</keywords>
+
+   <name>gps</name>
+
+   <description>
+     This plugin allows to use native gps.
+   </description>
+
+  <engines>
+    <engine name="cordova" version=">=1.7.0" />
+    <engine name="cordova" version="<1.8.1" />
+</engines>
+
+<asset src="www/gps.js" target="js/gps.js" /> 
+   <js-module src="www/gps.js" name="gps">
+      <clobbers target="gps" />
+   </js-module>
+
+   <!-- android -->
+   <platform name="android">
+      <config-file target="res/xml/config.xml" parent="/*">
+         <feature name="GpsPlugin">
+            <param name="android-package" value="com.plugin.GpsPlugin" />
+         </feature>
+      </config-file>
+      <source-file src="src/GpsPlugin.java" target-dir="src/com/plugin" />
+   </platform>
+</plugin>
