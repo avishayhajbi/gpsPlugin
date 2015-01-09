@@ -1,4 +1,4 @@
-package com.plugin;
+package avishayhajbi.gpsplugin;
 //notification
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -93,31 +93,5 @@ public class HelloPlugin extends CordovaPlugin{
       	callbackContext.error("unknown");
       	return false;
     }
-    
-    public void activateNotification(int id,String title,String message){
-     
-        System.out.println("creating notification");
-		//Context context = webView.getContext();
-        Context context = super.cordova.getActivity().getApplicationContext();
-        // Get taskId & message
-        if (id < 0) id *=-1;
-        int taskId = id;
-        String notificationText = message;
 
-        Intent intent = new Intent(context,HelloPlugin.class);
-        intent.setAction(""+taskId);
-        intent.putExtra("taskId", id);
-        intent.putExtra("notificationText", message );
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, taskId, intent,  0);
-        NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Notification notification = new Notification(android.R.drawable.ic_menu_info_details, notificationText ,System.currentTimeMillis());
-        notification.setLatestEventInfo( context,title, notificationText, pendingIntent);
-        notification.flags = Notification.FLAG_AUTO_CANCEL;
-        notification.defaults |= Notification.DEFAULT_SOUND;
-        notification.defaults |= Notification.DEFAULT_VIBRATE;
-        notificationManager.notify(taskId, notification); // to execute
-    }
- 
 }
