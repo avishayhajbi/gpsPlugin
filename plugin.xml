@@ -21,7 +21,7 @@
 
 <asset src="www/gps.js" target="js/gps.js" /> 
    <js-module src="www/gps.js" name="gps">
-      <clobbers target="gps" />
+      <clobbers target="js/gps" />
    </js-module>
 
    <!-- android -->
